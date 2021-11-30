@@ -3,12 +3,13 @@ from tkinter import messagebox
 import time
 import random
 
-PROVINCES_WORD = ["AGINANG", "BIEACUL", "TNHAHHAO", "NBNIHHIN", "LAGNNOS",
-                  "NOHIA", "NDIAMHN", "CABANC", "NHAMA", "NQAUNGHIN"]
+PROVINCES_WORD = ["a/g/i/n/A/n/G", "B/i/ê/ạ/c/u/L", "T/n/h/a/H/h/a/ó", "N/B/n/ì/h/h/i/n", "L/ạ/g/n/n/ơ/S",
+                  "N/ộ/H/i/à", "n/Đ/ị/a/m/h/N", "C/ắ/B/ạ/n/c", "N/H/à/m/a", "n/Q/ả/u/N/g/h/i/n"]
 
-PROVINCES_ANSWER = ["AN GIANG", "BAC LIEU", "THANH HOA", "NINH BINH", "LANG SON",
-                    "HA NOI", "NAM DINH", "BAC CAN", "HA NAM", "QUANG NINH"]
+PROVINCES_ANSWER = ["An Giang", "Bạc Liêu", "Thanh Hoá", "Ninh Bình", "Lạng Sơn",
+                    "Hà Nội", "Nam Định", "Bắc Cạn", "Hà Nam", "Quảng Ninh"]
 
+bg_color = '#99ffd6'
 var = 0
 ran_num_array = random.sample([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
 ran_num_array.append(10)
@@ -27,11 +28,12 @@ def main():
 
     def change():
         global ran_num
-        global var,  ran_num_array
+        global var,  ran_num_array, bg_color
         var += 1
         if var == 10 and points >= 30:
             var = 0
             ran_num_array = random.sample([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
+            bg_color = '#888844'
             my_window.destroy()
             messagebox.showinfo('You win!', "Bạn là nhất!!!")
             import index
@@ -39,6 +41,7 @@ def main():
         elif var == 10 and points < 30:
             var = 0
             ran_num_array = random.sample([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
+            bg_color = '#ff3300'
             my_window.destroy()
             messagebox.showinfo('You loss!', "Bạn như lốp xe vậy, hơi non!!!")
             import index
@@ -49,17 +52,16 @@ def main():
         ans_lab.configure(text="")
 
     def cheak(event=None):
-        global points, ran_num, var, ran_num_array
-        user_word = get_input.get().upper().strip()
+        global points, ran_num, var, ran_num_array, bg_color
+        user_word = get_input.get().title().strip()
         if user_word == PROVINCES_ANSWER[ran_num]:
             points += 5
-            score.configure(text="Point: " + str(points))
-            messagebox.showinfo('Good', "Được của ló, tiếp thôi bro!")
             var += 1
             if var == 10 and points >= 30:
                 var = 0
                 ran_num_array = random.sample(
                     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
+                bg_color = '#888844'
                 my_window.destroy()
                 messagebox.showinfo('You win!', "Bạn là nhất!!!")
                 import index
@@ -68,11 +70,14 @@ def main():
                 var = 0
                 ran_num_array = random.sample(
                     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
+                bg_color = '#ff3300'
                 my_window.destroy()
                 messagebox.showinfo(
                     'You loss!', "Bạn như lốp xe vậy, hơi non!!!")
                 import index
                 index.start_main_page()
+            score.configure(text="Point: " + str(points))
+            messagebox.showinfo('Good', "Được của ló, tiếp thôi bro!")
             ran_num = ran_num_array[var]
             word.configure(text=PROVINCES_WORD[ran_num])
             get_input.delete(0, END)
@@ -122,7 +127,7 @@ def main():
         pady=10,
         bg="#e6fff5",
         fg="#000000",
-        font="Titillium 50 bold"
+        font="Titillium 30 bold"
     )
     word.pack()
 

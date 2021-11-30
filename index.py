@@ -26,7 +26,7 @@ def start_main_page():
             borderwidth=8,
             font=("", 18),
             fg="#000000",
-            bg="#99ffd6",
+            bg=Province.bg_color,
             cursor="hand2",
             command=lambda: start_game(1),
         )
@@ -37,7 +37,7 @@ def start_main_page():
             borderwidth=8,
             font=("", 18),
             fg="#000000",
-            bg="#99ffd6",
+            bg=Job.bg_color,
             cursor="hand2",
             command=lambda: start_game(2),
         )
