@@ -1,5 +1,5 @@
 from tkinter import *
-from Options import Province, Job
+from Options import Province, Job, Nation, FolkGame, Random
 
 
 def start_main_page():
@@ -9,6 +9,12 @@ def start_main_page():
             Province.main()
         elif args == 2:
             Job.main()
+        elif args == 3:
+            Nation.main()
+        elif args == 4:
+            FolkGame.main()
+        elif args == 5:
+            Random.main()
 
     def option():
 
@@ -20,6 +26,7 @@ def start_main_page():
             justify='center',
             font=("Courier", 28)
         )
+        
         sel_btn1 = Button(
             text="Địa danh",
             width=18,
@@ -41,14 +48,49 @@ def start_main_page():
             cursor="hand2",
             command=lambda: start_game(2),
         )
+        
+        sel_btn3 = Button(
+            text="Dân Tộc",
+            width=18,
+            borderwidth=8,
+            font=("", 18),
+            fg="#000000",
+            bg=Nation.bg_color,
+            cursor="hand2",
+            command=lambda: start_game(3),
+        )
+        
+        sel_btn4 = Button(
+            text="Trò Chơi Dân Gian",
+            width=18,
+            borderwidth=8,
+            font=("", 18),
+            fg="#000000",
+            bg=FolkGame.bg_color,
+            cursor="hand2",
+            command=lambda: start_game(4),
+        )
+        
+        sel_btn5 = Button(
+            text="Chơi Tự Do",
+            width=18,
+            borderwidth=8,
+            font=("", 18),
+            fg="#000000",
+            bg=Random.bg_color,
+            cursor="hand2",
+            command=lambda: start_game(5),
+        )
 
-        lab_img1.pack(pady=(50, 0),)
-        sel_btn1.pack(pady=(50, 0), )
-        sel_btn2.pack(pady=(50, 0), )
+        lab_img1.pack(pady=(40, 0),)
+        sel_btn1.pack(pady=(40, 0), )
+        sel_btn2.pack(pady=(20, 0), )
+        sel_btn3.pack(pady=(20, 0), )
+        sel_btn4.pack(pady=(20, 0), )
+        sel_btn5.pack(pady=(20, 0), )
 
     def show_option():
         start_btn.destroy()
-
         lab_img.destroy()
         option()
 
