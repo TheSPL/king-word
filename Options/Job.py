@@ -83,8 +83,13 @@ def main():
             get_input.delete(0, END)
             ans_lab.configure(text="")
         else:
+            var += 1
+            score.configure(text="Point: " + str(points))
             messagebox.showerror("Error", "Xai dồi!")
+            ran_num = ran_num_array[var]
+            word.configure(text=JOBS_WORD[ran_num])
             get_input.delete(0, END)
+            ans_lab.configure(text="")
 
     def show_answer():
         global points

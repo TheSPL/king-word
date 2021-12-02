@@ -4,10 +4,10 @@ import time
 import random
 
 NATIONS_WORD = ["m/ă/C/h", "G/i/a/a/R/l", "K/h/ú/ơ/M", "P/ẻ/T/n/h/à", "ê/g/G/r/n/i/i/é/T",
-                  "g/n/M/ô", "Ê/ê/Đ", "h/i/á/T", "ờ/ư/M/g/n", "N/g/n/ù"]
+                "g/n/M/ô", "Ê/ê/Đ", "h/i/á/T", "ờ/ư/M/g/n", "N/g/n/ù"]
 
 NATIONS_ANSWER = ["Chăm", "Ra Glai", "Khơ Mú", "Pà Thẻn", "Gié Triêng",
-                    "Mông", "Ê Đê", "Thái", "Mường", "Nùng"]
+                  "Mông", "Ê Đê", "Thái", "Mường", "Nùng"]
 
 bg_color = '#99ffd6'
 var = 0
@@ -83,8 +83,13 @@ def main():
             get_input.delete(0, END)
             ans_lab.configure(text="")
         else:
+            var += 1
+            score.configure(text="Point: " + str(points))
             messagebox.showerror("Error", "Xai dồi!")
+            ran_num = ran_num_array[var]
+            word.configure(text=JOBS_WORD[ran_num])
             get_input.delete(0, END)
+            ans_lab.configure(text="")
 
     def show_answer():
         global points

@@ -4,10 +4,10 @@ import time
 import random
 
 RANDOMS_WORD = ["C/C/y/a/a/h/u", "ẳ/n/g/ơ/L/L", "T/ổ/ô/g/n/C/h", "c/Đ/C/á/ố", "n/ệ/n/Ả/h/Đ/i",
-                  "í/t/ị/R/K/t/h", "n/ệ/ứ/h/S/M", "o/ã/H/H/à/o/n", "C/c/h/ị/h/T/ủ", "H/à/ư/i/H/ớ/c"]
+                "í/t/ị/R/K/t/h", "n/ệ/ứ/h/S/M", "o/ã/H/H/à/o/n", "C/c/h/ị/h/T/ủ", "H/à/ư/i/H/ớ/c"]
 
 RANDOMS_ANSWER = ["Chua Cay", "Lẳng Lơ", "Thổ Công", "Cốc Đá", "Điện Ảnh",
-                    "Khít Rịt", "Sứ Mệnh", "Hoà Hoãn", "Chủ Tịch", "Hài Hước"]
+                  "Khít Rịt", "Sứ Mệnh", "Hoà Hoãn", "Chủ Tịch", "Hài Hước"]
 
 bg_color = '#99ffd6'
 var = 0
@@ -83,8 +83,13 @@ def main():
             get_input.delete(0, END)
             ans_lab.configure(text="")
         else:
+            var += 1
+            score.configure(text="Point: " + str(points))
             messagebox.showerror("Error", "Xai dồi!")
+            ran_num = ran_num_array[var]
+            word.configure(text=JOBS_WORD[ran_num])
             get_input.delete(0, END)
+            ans_lab.configure(text="")
 
     def show_answer():
         global points
