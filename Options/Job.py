@@ -93,13 +93,13 @@ def main():
 
     def show_answer():
         global points
-        if points > 4:
-            points -= 5
+        if points > 9:
+            points -= 10
             score.configure(text="Point:  " + str(points))
             time.sleep(0.5)
             ans_lab.configure(text=JOBS_ANSWER[ran_num])
         else:
-            ans_lab.configure(text='Kiếm 5 điểm rồi quay lại nha :v')
+            ans_lab.configure(text='Kiếm 10 điểm rồi quay lại nha :v')
 
     my_window = Tk()
     my_window.geometry("450x600+500+150")
