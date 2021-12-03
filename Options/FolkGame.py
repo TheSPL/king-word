@@ -16,8 +16,9 @@ ran_num = ran_num_array[var]
 points = 0
 
 f = open("../king-word/Max_Point/MP_FolkGame.txt", 'r', encoding='utf-8')
-maxP=str(f.read())
+maxP = str(f.read())
 f.close()
+
 
 def main():
     def back():
@@ -64,13 +65,15 @@ def main():
         if user_word == FOLKGAMES_ANSWER[ran_num]:
             points += 5
             if points > int(maxP):
-                f= open("../king-word/Max_Point/MP_FolkGame.txt", 'w', encoding='utf-8')
+                f = open("../king-word/Max_Point/MP_FolkGame.txt",
+                         'w', encoding='utf-8')
                 f.write(str(points))
                 f.close()
-                f = open("../king-word/Max_Point/MP_FolkGame.txt", 'r', encoding='utf-8')
-                maxP=str(f.read())
+                f = open("../king-word/Max_Point/MP_FolkGame.txt",
+                         'r', encoding='utf-8')
+                maxP = str(f.read())
                 f.close()
-                
+
             var += 1
             if var == 10 and points >= 30:
                 var = 0
@@ -78,7 +81,7 @@ def main():
                     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)
                 ran_num = ran_num_array[var]
                 bg_color = '#888844'
-                
+
                 my_window.destroy()
                 messagebox.showinfo('You win!', "Bạn là nhất!!!")
                 points = 0
@@ -138,13 +141,13 @@ def main():
 
     max_point = Label(
         my_window,
-        text="Max Point: "+ maxP,
+        text="Max Point: " + maxP,
         bg="#e6fff5",
         fg="#660000",
         font="Titillium 15 bold",
     )
     max_point.pack(anchor="n")
-    
+
     score = Label(
         text="Point: 0",
         pady=10,
@@ -153,7 +156,6 @@ def main():
         font="Titillium 14 bold"
     )
     score.pack(anchor="n")
-    
 
     word = Label(
         text=FOLKGAMES_WORD[ran_num],
@@ -163,7 +165,7 @@ def main():
         font="Titillium 30 bold"
     )
     word.pack()
-    
+
     ans_lab = Label(
         text="",
         bg="#e6fff5",
@@ -213,6 +215,5 @@ def main():
         command=show_answer,
     )
     ans.pack(pady=(20, 10))
-
 
     my_window.mainloop()
