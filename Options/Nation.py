@@ -3,11 +3,11 @@ from tkinter import messagebox
 import time
 import random
 
-JOBS_WORD = ["ô/n/g/C/n/A", "S/ỹ/c/á/B", "S/G/ư/i/o/á", "V/G/i/ê/á/o/i/n", "C/n/h/â/ô/g/n/N",
-             "S/V/i/i/n/h/ê/n", "L/o/a/C/n/g/ô", "S/H/c/ọ/n/i/h", "S/ỹ/K/ư", "n/â/n/h/i/V/ê/N"]
+NATIONS_WORD = ["m/ă/C/h", "G/i/a/a/R/l", "K/h/ú/ơ/M", "P/ẻ/T/n/h/à", "ê/g/G/r/n/i/i/é/T",
+                "g/n/M/ô", "Ê/ê/Đ", "h/i/á/T", "ờ/ư/M/g/n", "N/g/n/ù"]
 
-JOBS_ANSWER = ["Công An", "Bác Sỹ", "Giáo Sư", "Giáo Viên", "Công Nhân",
-               "Sinh Viên", "Lao Công", "Học Sinh", "Kỹ Sư", "Nhân Viên"]
+NATIONS_ANSWER = ["Chăm", "Ra Glai", "Khơ Mú", "Pà Thẻn", "Gié Triêng",
+                  "Mông", "Ê Đê", "Thái", "Mường", "Nùng"]
 
 bg_color = '#99ffd6'
 var = 0
@@ -16,7 +16,7 @@ ran_num_array.append(10)
 ran_num = ran_num_array[var]
 points = 0
 
-f = open("../king-word/Max_Point/MP_Job.txt", 'r', encoding='utf-8')
+f = open("../king-word/Max_Point/MP_Nation.txt", 'r', encoding='utf-8')
 maxP = str(f.read())
 f.close()
 
@@ -56,21 +56,21 @@ def main():
             import index
             index.start_main_page()
         ran_num = ran_num_array[var]
-        word.configure(text=JOBS_WORD[ran_num])
+        word.configure(text=NATIONS_WORD[ran_num])
         get_input.delete(0, END)
         ans_lab.configure(text="")
 
     def cheak(event=None):
         global points, ran_num, var, ran_num_array, bg_color, maxP, points
         user_word = get_input.get().title().strip()
-        if user_word == JOBS_ANSWER[ran_num]:
+        if user_word == NATIONS_ANSWER[ran_num]:
             points += 5
             if points > int(maxP):
-                f = open("../king-word/Max_Point/MP_Job.txt",
+                f = open("../king-word/Max_Point/MP_Nation.txt",
                          'w', encoding='utf-8')
                 f.write(str(points))
                 f.close()
-                f = open("../king-word/Max_Point/MP_Job.txt",
+                f = open("../king-word/Max_Point/MP_Nation.txt",
                          'r', encoding='utf-8')
                 maxP = str(f.read())
                 f.close()
@@ -102,7 +102,7 @@ def main():
             score.configure(text="Point: " + str(points))
             messagebox.showinfo('Good', "Được của ló, tiếp thôi bro!")
             ran_num = ran_num_array[var]
-            word.configure(text=JOBS_WORD[ran_num])
+            word.configure(text=NATIONS_WORD[ran_num])
             get_input.delete(0, END)
             ans_lab.configure(text="")
         else:
@@ -110,7 +110,7 @@ def main():
             score.configure(text="Point: " + str(points))
             messagebox.showerror("Error", "Xai dồi!")
             ran_num = ran_num_array[var]
-            word.configure(text=JOBS_WORD[ran_num])
+            word.configure(text=NATIONS_WORD[ran_num])
             get_input.delete(0, END)
             ans_lab.configure(text="")
 
@@ -119,7 +119,7 @@ def main():
         if points > 9:
             points -= 10
             score.configure(text="Điểm: " + str(points))
-            ans_lab.configure(text=JOBS_ANSWER[ran_num])
+            ans_lab.configure(text=NATIONS_ANSWER[ran_num])
         else:
             ans_lab.configure(text='Kiếm 10 điểm rồi quay lại nha :v')
 
@@ -159,7 +159,7 @@ def main():
     score.pack(anchor="n")
 
     word = Label(
-        text=JOBS_WORD[ran_num],
+        text=NATIONS_WORD[ran_num],
         pady=10,
         bg="#e6fff5",
         fg="#000000",
