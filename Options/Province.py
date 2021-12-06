@@ -99,7 +99,7 @@ def main():
                     'You loss!', "Bạn như lốp xe vậy, hơi non!!!")
                 import index
                 index.start_main_page()
-            score.configure(text="Point: " + str(points))
+            score.configure(text="Điểm: " + str(points))
             messagebox.showinfo('Good', "Được của ló, tiếp thôi bro!")
             ran_num = ran_num_array[var]
             word.configure(text=PROVINCES_WORD[ran_num])
@@ -107,7 +107,7 @@ def main():
             ans_lab.configure(text="")
         else:
             var += 1
-            score.configure(text="Point: " + str(points))
+            score.configure(text="Điểm: " + str(points))
             messagebox.showerror("Error", "Xai dồi!")
             ran_num = ran_num_array[var]
             word.configure(text=PROVINCES_WORD[ran_num])
@@ -117,7 +117,7 @@ def main():
     def show_answer():
         global points
         if points > 9:
-            points -= 10
+            points -= random.randint(3, 7)
             score.configure(text="Điểm: " + str(points))
             ans_lab.configure(text=PROVINCES_ANSWER[ran_num])
         else:
@@ -142,7 +142,7 @@ def main():
 
     max_point = Label(
         my_window,
-        text="Max Point: " + maxP,
+        text="Điểm cao nhất: " + maxP,
         bg="#e6fff5",
         fg="#660000",
         font="Titillium 15 bold",
@@ -150,7 +150,7 @@ def main():
     max_point.pack(anchor="n")
 
     score = Label(
-        text="Point: 0",
+        text="Điểm: 0",
         pady=10,
         bg="#e6fff5",
         fg="#00004d",
@@ -185,7 +185,7 @@ def main():
     get_input.pack()
 
     submit = Button(
-        text="Submit",
+        text="Kiểm tra",
         width=15,
         borderwidth=8,
         font=("", 18),
@@ -196,7 +196,7 @@ def main():
     submit.pack(pady=(40, 20))
 
     change = Button(
-        text="Chane Word",
+        text="Khó quá thì bỏ!",
         width=15,
         borderwidth=8,
         fg="#000000",
@@ -207,7 +207,7 @@ def main():
     change.pack()
 
     ans = Button(
-        text="Answer",
+        text="Nhìn đáp án",
         width=15,
         borderwidth=8,
         fg="#000000",

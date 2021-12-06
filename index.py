@@ -20,7 +20,7 @@ def start_main_page():
 
         lab_img1 = Button(
             main_window,
-            text="Topic:",
+            text="Chủ đề:",
             bg='#e6fff5',
             border=0,
             justify='center',
@@ -103,17 +103,20 @@ def start_main_page():
 
     img1 = PhotoImage(file="back.png")
 
-    lab_img = Label(
+    lab_img = Button(
         main_window,
-        text="King of Word",
-        bg='#e6fff5',
-        font=("Courier", 28)
+        text="ÔNG HOÀNG TIẾNG VIỆT",
+        width=25,
+        borderwidth=8,
+        fg="#ffe6f7",
+        bg="#e68a00",
+        font=("Titillium bold", 20),
     )
     lab_img.pack(pady=(50, 0))
 
     start_btn = Button(
         main_window,
-        text="Start",
+        text="Bắt đầu",
         width=22,
         height=11,
         fg="#000000",
