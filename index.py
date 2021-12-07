@@ -98,7 +98,7 @@ def start_main_page():
 
     main_window.geometry("450x600+500+150")
     main_window.resizable(0, 0)
-    main_window.title("Vua Tiếng Việt")
+    main_window.title("Ông hoàng Tiếng Việt")
     main_window.configure(background="#e6fff5")
 
     img1 = PhotoImage(file="back.png")
